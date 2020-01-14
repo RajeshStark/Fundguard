@@ -210,7 +210,7 @@ fetch('http://pramod.freevar.com/userregistration/contactus.php', {
             onPress={this.navigateToScreen('Quote')}
           >
             <Footer style={styles.footer}>
-            <Text style={{fontSize:24, fontWeight:'800', color:'#fff'}}>Get In Touch</Text>
+            <Text style={{fontSize:24, fontWeight:'800'}}>Get In Touch</Text>
             </Footer>
       </TouchableOpacity>
   
@@ -271,7 +271,7 @@ link: {
    //borderRadius: 10 ,
   },
   footer: {
-    backgroundColor:'#D35400',
+    backgroundColor:'#FFC300',
     justifyContent:'center', 
     alignItems:'center'
   }

@@ -105,10 +105,34 @@ class SideMenu extends Component {
             </TouchableOpacity>
             <Divider style={{ backgroundColor: 'black', borderWidth:0.7 }} />
 
+            <TouchableOpacity style={styles.navSectionStyle} onPress={this.navigateToScreen('Premium')}>
+            <Icon name='rupee-sign' style={{fontSize:30}} />
+              <Text style={styles.navItemStyle} >
+               Premium Payment
+              </Text>
+            </TouchableOpacity>
+            <Divider style={{ backgroundColor: 'black', borderWidth:0.7 }} />
+
             <TouchableOpacity style={styles.navSectionStyle} onPress={this.navigateToScreen('Contact')}>
             <Icon name='at' style={{fontSize:30}} />
               <Text style={styles.navItemStyle} >
               Contact Us
+              </Text>
+            </TouchableOpacity>
+            <Divider style={{ backgroundColor: 'black', borderWidth:0.7 }} />
+
+            {/* <TouchableOpacity style={styles.navSectionStyle} onPress={this.navigateToScreen('Pay')}>
+            <Icon name='rupee-sign' style={{fontSize:30}} />
+              <Text style={styles.navItemStyle} >
+               Premium Payment
+              </Text>
+            </TouchableOpacity>
+            <Divider style={{ backgroundColor: 'black', borderWidth:0.7 }} /> */}
+
+            <TouchableOpacity style={styles.navSectionStyle} onPress={this.navigateToScreen('Faq')}>
+            <Icon name='question' style={{fontSize:30}} />
+              <Text style={styles.navItemStyle} >
+              Faq
               </Text>
             </TouchableOpacity>
             <Divider style={{ backgroundColor: 'black', borderWidth:0.7 }} />
@@ -120,38 +144,13 @@ class SideMenu extends Component {
               </Text>
             </TouchableOpacity>
             <Divider style={{ backgroundColor: 'black', borderWidth:0.7 }} />
-
-            <TouchableOpacity style={styles.navSectionStyle} onPress={this.navigateToScreen('Faq')}>
-            <Icon name='question' style={{fontSize:30}} />
-              <Text style={styles.navItemStyle} >
-              Faq
-              </Text>
-            </TouchableOpacity>
-            <Divider style={{ backgroundColor: 'black', borderWidth:0.7 }} />
-
-            <TouchableOpacity style={styles.navSectionStyle} onPress={this.navigateToScreen('Club')}>
-            <Icon name='users' style={{fontSize:30}} />
-              <Text style={styles.navItemStyle} >
-               Club Membership
-              </Text>
-            </TouchableOpacity>
-            <Divider style={{ backgroundColor: 'black', borderWidth:0.7 }} />
-
-            <TouchableOpacity style={styles.navSectionStyle} onPress={this.navigateToScreen('Mdrt')}>
-            <Image style={{height:35,width:40,resizeMode:'stretch'}}
-            source={require('../assets/images/MDRT.png')}/>
-              <Text style={styles.navItemStyle} >
-              MDRT\COT\TOT
-              </Text>
-            </TouchableOpacity>
-            <Divider style={{ backgroundColor: 'black', borderWidth:0.7 }} />
            
            
             </View>
         </ScrollView>
         <Footer style={{backgroundColor:'#fff',justifyContent:'flex-start'}}>
-             <View style={{marginBottom:5}}>
-               <Text style={{color:'#282828'}}>App Version : 1.0</Text>
+             <View style={{marginBottom:5, margin:5}}>
+               <Text style={{color:'#282828'}}>App Version : 1.2.1</Text>
               
                <TouchableOpacity 
                    onPress={() => {

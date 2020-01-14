@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
   Image,
   ScrollView,
@@ -7,42 +7,44 @@ import {
   View,
   Dimensions,
   TouchableOpacity,
-
+  Modal,
+  TouchableHighlight,
+  Alert
 } from 'react-native';
 import "react-native-gesture-handler";
-import { Header, Content, Body, Left, Accordion, Icon, Footer } from 'native-base';
+import { Header, Content, Body, Left, Right, Accordion, Icon, Footer } from 'native-base';
 import ImageCarousel from './ImageCarousel';
 import Slider from './Slider';
 import Footerbar from './Footer';
 import {NavigationActions} from 'react-navigation';
+import Fab from './ShareF';
 
 
 export default class Home extends React.Component {
-
     
-  navigateToScreen = (Quote) => () => {
+  navigateToScreen = (route) => () => {
     const navigateAction = NavigationActions.navigate({
-      routeName: Quote
+      routeName: route
     });
     this.props.navigation.dispatch(navigateAction);
   }
    
 
-
   render(){
+
+    const {navigate} = this.props.navigation;
+
+
   return (
      <View style={styles.container}>
 
      <Header style={{ backgroundColor: '#FBC707'}}>
      <Left>
-   
      <Icon name='menu' style={{padding:20}}
-        onPress={() => this.props.navigation.openDrawer()}
-        
+        onPress={() => this.props.navigation.openDrawer()}  
      />
-
     </Left>
-    <Body>
+    <Body style={{alignItems:'center'}}>
       <View style={{flexDirection:'row',justifyContent:'center', alignItems:'center', alignContent:'center'}}>
     <Image 
         style={{width:30, height:50, marginLeft: -30}}
@@ -53,6 +55,12 @@ export default class Home extends React.Component {
         </Text>
       </View>
     </Body>
+    <Right>
+    <Icon name='settings' style={{padding:20}}
+      // onPress={() => navigate('LogIn')}
+      onPress={() => navigate('LogIn')}
+     />
+    </Right>
      </Header>
       <ScrollView>
       <View>
@@ -120,11 +128,14 @@ export default class Home extends React.Component {
                        
          </View>
       </ScrollView>
+      <View >
+       <Fab/>
+      </View>
       <TouchableOpacity
             onPress={this.navigateToScreen('Quote')}
           >
             <Footer style={styles.footer}>
-            <Text style={{fontSize:24, fontWeight:'800', color:'#fff'}}>Get In Touch</Text>
+            <Text style={{fontSize:24, fontWeight:'800'}}>Get In Touch</Text>
             </Footer>
       </TouchableOpacity>
     </View>
@@ -148,7 +159,7 @@ const dataArray = [
 
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
-
+const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
   container: {
@@ -197,7 +208,7 @@ const styles = StyleSheet.create({
     
   },
   footer: {
-    backgroundColor:'#D35400',
+    backgroundColor:'#FFC300',
     justifyContent:'center', 
     alignItems:'center',
     

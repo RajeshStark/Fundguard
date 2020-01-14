@@ -11,10 +11,17 @@ import Popular from './src/Popular';
 import Refer from './src/Refer';
 import Contact from './src/Contact';
 import Faq from './src/Faq';
-import Club from './src/Club';
-import Mdrt from './src/Mdrt';
-import Sidebar from './src/Sidebar';
+import Premium from './src/Premium';
 
+import LogIn from './src/Contacts/Login';
+import EditProfile from './src/Contacts/EditProfile';
+import IndexC from './src/Contacts/IndexC';
+import AddProspect from './src/Contacts/AddProspect';
+import AddCustomer from './src/Contacts/AddCustemor';
+import Report from './src/Contacts/Greetings/TabG/Report';
+import Frequent from './src/Contacts/Greetings/TabG/Frequent';
+
+import Sidebar from './src/Sidebar';
 
 const MyDrawerNavigator = createDrawerNavigator({
   Home : {
@@ -44,12 +51,32 @@ const MyDrawerNavigator = createDrawerNavigator({
   Faq : {
     screen: Faq,
   },
-  Club : {
-    screen: Club,
+  Premium : {
+    screen: Premium,
   },
-  Mdrt : {
-    screen: Mdrt,
+  LogIn : {
+    screen: LogIn,
   },
+
+  EditProfile : {
+    screen: EditProfile,
+  },
+ AddProspect : {
+    screen: AddProspect,
+  },
+ AddCustomer : {
+    screen: AddCustomer,
+  },
+  Report : {
+    screen: Report,
+  },
+  Frequent : {
+    screen: Frequent,
+  },
+  IndexC : {
+    screen : IndexC
+  }
+
 },
 {
   contentComponent: Sidebar,
@@ -57,3 +84,4 @@ const MyDrawerNavigator = createDrawerNavigator({
 );
 
 export default createAppContainer(MyDrawerNavigator);
+

@@ -59,7 +59,7 @@ Our Website: {"\n"}http://www.fundguard.in
   <View >
     <View style={{flexDirection:'column', justifyContent:'center',alignItems:'center', marginBottom:10}}>
     <Text style={{fontSize:24, color:'white',}}>Follow Us On:</Text>
-    <View style={{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
+    <View style={{flexDirection:'row', justifyContent:'center', alignItems:'center',marginBottom:40}}>
        <SocialIcon
            onPress={() => {
            Linking.openURL("https://api.whatsapp.com/send?phone= +91-8802202259");}}

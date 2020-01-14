@@ -95,7 +95,7 @@ def enableSeparateBuildPerCPUArchitecture = false
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
  */
-def enableProguardInReleaseBuilds = true
+def enableProguardInReleaseBuilds = false
 
 /**
  * The preferred build flavor of JavaScriptCore.
@@ -131,23 +131,23 @@ android {
         applicationId "com.fundguard"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
-        versionName "1.1.0"
-        ndk {
-              abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
-             }
+        versionCode 5
+        versionName "1.2.1"
+        // ndk {
+        //       abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
+        //      }
     }
 
-    signingConfigs {
-        release {
-            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
-                storeFile file(MYAPP_UPLOAD_STORE_FILE)
-                storePassword MYAPP_UPLOAD_STORE_PASSWORD
-                keyAlias MYAPP_UPLOAD_KEY_ALIAS
-                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
-            }
-        }
-    }
+    // signingConfigs {
+    //     release {
+    //         if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+    //             storeFile file(MYAPP_UPLOAD_STORE_FILE)
+    //             storePassword MYAPP_UPLOAD_STORE_PASSWORD
+    //             keyAlias MYAPP_UPLOAD_KEY_ALIAS
+    //             keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+    //         }
+    //     }
+    // }
  
 
     splits {
@@ -161,16 +161,16 @@ android {
       
 
     buildTypes {
-         debug {
-             signingConfig signingConfigs.debug
-         }
+        debug {
+            signingConfig signingConfigs.debug
+        }
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://facebook.github.io/react-native/docs/signed-apk-android.
-
+            // signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            signingConfig signingConfigs.release
+            
         }
     }
     // applicationVariants are e.g. debug, release
@@ -190,10 +190,15 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-fs')
+    
     
     implementation project(':react-native-gesture-handler')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation project(':react-native-contacts')
+
+    //Document picker
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";

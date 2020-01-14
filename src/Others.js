@@ -15,7 +15,7 @@ import {Container, Content, Card, CardItem,Header, Body, Left,Icon, Footer} from
 import { SocialIcon  } from 'react-native-elements'
 import Footerbar from './Footer';
 import {NavigationActions} from 'react-navigation';
-
+import Fab from './ShareF'
 
 export default class Home extends React.Component {
 
@@ -120,11 +120,15 @@ export default class Home extends React.Component {
          <Footerbar/> 
        </View>
      </ScrollView>
+     <View>
+       <Fab/>
+     </View>
+
      <TouchableOpacity
             onPress={this.navigateToScreen('Quote')}
           >
             <Footer style={styles.footer}>
-            <Text style={{fontSize:24, fontWeight:'800', color:'#fff'}}>Become An LIC Agent</Text>
+            <Text style={{fontSize:24, fontWeight:'800'}}>Become An LIC Agent</Text>
             </Footer>
       </TouchableOpacity>
     </Container>
@@ -166,7 +170,7 @@ const styles = StyleSheet.create({
   
 
 footer: {
-  backgroundColor:'#D35400',
+  backgroundColor:'#FFC300',
   justifyContent:'center', 
   alignItems:'center'
 }

@@ -37,7 +37,7 @@ export default class App extends Component{
                 
               ]}
             >
-              <Image source={{ uri: item }} style={styles.customImage} />
+              <Image source={{ uri: item, cache: 'only-if-cached' }} style={styles.customImage} />
             </View>
           )}
           customButtons={(position, move) => (
